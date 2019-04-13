@@ -1,0 +1,16 @@
+<nz-upload
+    [nzAction]="imageUploadUrl"
+    [nzName]="imageUploadName"
+    [(nzFileList)]="fileListImg"
+    [nzShowUploadList]="showUploadList"
+    [nzListType]="listType"
+    [nzMultiple] = "'true'"
+    [nzBeforeUpload]="beforeUploadCheck"
+    (nzChange)="handleChange($event)"
+    [nzRemove]="handleRemove"
+>
+    <button nz-button>
+        <i class="anticon anticon-upload"></i>
+        <span>{{buttonText}}</span>
+    </button>
+</nz-upload>
