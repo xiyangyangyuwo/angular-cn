@@ -1,0 +1,26 @@
+<nz-upload
+  [nzAction]="imageUploadUrl"
+  [nzName]="imageUploadName"
+  [(nzFileList)]="imageList"
+  [nzShowButton]="imageList.length < imageMaxNumber"
+  [nzShowUploadList]="showUploadList"
+  nzListType="picture-card"
+  [nzBeforeUpload]="beforeUploadCheck"
+  (nzChange)="handleChange($event)"
+  [nzPreview]="handlePreview"
+  [nzRemove]="handleRemove"
+>
+  <i nz-icon type="plus"></i>
+  <div class="ant-upload-text">点击上传</div>
+</nz-upload>
+
+<nz-modal
+  [nzVisible]="previewVisible"
+  [nzContent]="modalContent"
+  [nzFooter]="null"
+  (nzOnCancel)="previewVisible = false"
+>
+  <ng-template #modalContent>
+    <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+  </ng-template>
+</nz-modal>
